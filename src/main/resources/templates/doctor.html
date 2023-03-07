@@ -6,11 +6,15 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<header>Header TODO</header>
+
+<header th:replace="fragments/header.html :: header"></header>
+
 <section>
     <h1>Welcome $doctorname</h1>
     <h3>Your number is $doctornumber</h3>
 </section>
-<footer>Footer TODO</footer>
+
+<footer th:replace="fragments/footer.html :: footer"></footer>
+
 </body>
 </html>
