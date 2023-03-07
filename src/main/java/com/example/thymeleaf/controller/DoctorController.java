@@ -4,15 +4,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.ui.Model;
 
 @Controller
 public class DoctorController {
 
     @GetMapping("/doctor/")
-    @ResponseBody
-    public String doctor(@RequestParam(required=false, defaultValue="0") int number,
-                         @RequestParam(required=false, defaultValue="John Smith") String name) {
+    public String doctor(Model model, @RequestParam(required=false, defaultValue="0") int number, 
+                        @RequestParam(required=false, defaultValue="John Smith") String name) {
 
-        return "Id : " + number + " Name : " + name;
+        model.addAttribute("doctorname", name);
+        model.addAttribute("doctornumber", number);
+
+
+
+        return "doctor";
     }
 }
